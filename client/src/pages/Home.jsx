@@ -1,37 +1,73 @@
 import MovieCard from "../components/MovieCard"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { searchMovies,getPopularMovies } from "../services/api"
+import "../css/Home.css"
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState("")
-  const movies =[
-    {id:1, title:"Jeri", release_date:"2025"},
-    {id:2, title:"paran", release_date:"2025"},
-    {id:3, title:"spider", release_date:"2025"},
-    
+  const [movies, setMovies] = useState([])
+  const [error , setError] = useState(null)
+  const [loading , setLoading] = useState(true)
 
-  ] 
-  const handleSearch = (e) => {
+  useEffect(() =>{
+    const loadPopularMovies = async () =>{
+      try{
+        const popularMovies = await getPopularMovies()
+        setMovies(popularMovies)
+      } catch(err){
+        console.log(err)
+        setError("failed to load movies...")
+      }
+      finally{
+        setLoading(false)
+      }
+      }
+      loadPopularMovies()
+    
+  }, [])
+
+  const handleSearch = async(e) => {
   e.preventDefault()
-  alert(searchQuery)
-  setSearchQuery("")
+  if(!searchQuery.trim())return
+  if (loading) return
+  setLoading (true)
+  try{
+   const searchResults = await searchMovies (searchQuery)
+    setMovies (searchResults)
+    setError (null)
+  }catch (err){
+    console.log(err)
+    setError ("failed to search movies...")
+  }finally{
+    setLoading (false)
+  }
+ 
 }
 
   return (
   <div className="home">
-        <form onSubmit={handleSearch} className="search-form"></form>
+        <form onSubmit={handleSearch} className="search-form">
           <input type="text"
           placeholder="search for movies.." 
           className="search-input"
           value={searchQuery} 
           onChange={(e) => setSearchQuery(e.target.value)} />
           <button type="submit" className="search-button">Search</button>
-    <div className="movies-grid">
+        </form>
+         {error && <div className="error">{error}</div>}
+        {loading ? 
+        (<div className="loading">Loading...</div>
+          
+         ):(
+         <div className="movies-grid">
       {movies.map((movie)=>(
         <MovieCard movie={movie} key={movie.id} />
           ))}
     </div>
-  </div>
+         )}
+    </div>
   )
+
 }
 
 export default Home
