@@ -1,16 +1,91 @@
-# React + Vite
+# MovieProject
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/-React-blue?logo=react&logoColor=white)
 
-Currently, two official plugins are available:
+## 📝 Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Dive into the world of cinema with MovieProject, a web application built using React. Explore a vast library of movies, discover new favorites, and stay up-to-date with the latest releases. MovieProject offers a user-friendly interface to browse, search, and learn more about your favorite films, all powered by the efficiency and responsiveness of React.
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🕸️ Web
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+- ⚛️ React
+
+
+## 📦 Key Dependencies
+
+```
+react: ^19.2.0
+react-dom: ^19.2.0
+react-router-dom: ^7.9.6
+```
+
+## 🚀 Run Commands
+
+- **dev**: `npm run dev`
+- **build**: `npm run build`
+- **lint**: `npm run lint`
+- **preview**: `npm run preview`
+
+
+## 📁 Project Structure
+
+```
+client
+├── eslint.config.js
+├── index.html
+├── package.json
+├── public
+│   └── vite.svg
+├── src
+│   ├── App.css
+│   ├── App.jsx
+│   ├── assets
+│   │   └── react.svg
+│   ├── components
+│   │   ├── MovieCard.jsx
+│   │   └── NavBar.jsx
+│   ├── contexts
+│   │   └── MovieContext.jsx
+│   ├── css
+│   │   ├── App.css
+│   │   ├── Favorites.css
+│   │   ├── Home.css
+│   │   ├── MovieCard.css
+│   │   ├── Navbar.css
+│   │   └── index.css
+│   ├── index.css
+│   ├── main.jsx
+│   └── pages
+│       ├── Favorite.jsx
+│       ├── Favorites.jsx
+│       └── Home.jsx
+└── vite.config.js
+```
+
+## 🛠️ Development Setup
+
+### Node.js/JavaScript Setup
+1. Install Node.js (v18+ recommended)
+2. Install dependencies: `npm install` or `yarn install`
+3. Start development server: (Check scripts in `package.json`, e.g., `npm run dev`)
+
+
+## 👥 Contributing
+
+Contributions are welcome! Here's how you can help:
+
+1. **Fork** the repository
+2. **Clone** your fork: `git clone https://github.com/binisha77/MovieProject.git`
+3. **Create** a new branch: `git checkout -b feature/your-feature`
+4. **Commit** your changes: `git commit -am 'Add some feature'`
+5. **Push** to your branch: `git push origin feature/your-feature`
+6. **Open** a pull request
+
+Please ensure your code follows the project's style guidelines and includes tests where applicable.
+
+ 
